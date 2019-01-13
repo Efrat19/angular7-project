@@ -36,21 +36,21 @@ export class ConverterService {
     // const data = from(fetch('https://free.currencyconverterapi.com/api/v6/currencies')).pipe(map(res =>res));
 // Subscribe to begin listening for async result
 
-    // let data$ = from(fetch('https://free.currencyconverterapi.com/api/v6/currencies')).pipe(map(res => console.log(res)));
-   // data$.subscribe(res => console.log(res));
-    //   next(data: any) {
-    //     console.log(data.results);
-    //     Object.keys(data.results).forEach(key => {
-    //       this.currencies.push(new Currency(data.results[key].id, data.results[key].currencyName, data.results[key].currencySymbol))
-    //     })
-    //   }
-    // });
+    let data$ = from(fetch('https://free.currencyconverterapi.com/api/v6/currencies')).pipe(map(res => console.log(res)));
+   data$.subscribe(res => console.log(res));
+      next(data: any) {
+        console.log(data.results);
+        Object.keys(data.results).forEach(key => {
+          this.currencies.push(new Currency(data.results[key].id, data.results[key].currencyName, data.results[key].currencySymbol))
+        })
+      }
+    });
 
-     return fetch('https://free.currencyconverterapi.com/api/v6/currencies').then(res=>
-     res.json()).then(data=>{
-      Object.keys(data.results).forEach(key => {
-         this.currencies.push(new Currency(data.results[key].id,data.results[key].currencyName,data.results[key].currencySymbol))
-       })
-     })
-  }
+    //  return fetch('https://free.currencyconverterapi.com/api/v6/currencies').then(res=>
+    //  res.json()).then(data=>{
+    //   Object.keys(data.results).forEach(key => {
+    //      this.currencies.push(new Currency(data.results[key].id,data.results[key].currencyName,data.results[key].currencySymbol))
+    //    })
+    //  })
+  // }
 }
