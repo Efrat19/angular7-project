@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="text-center">
+    <h2>Welcome to Currency Converter Online</h2>
+    <form [formGroup]="form"  class="form-group" (ngSubmit)="convert()">
+    <div class="form-group">
+      <label for="from" class="label">convert from:</label>
+      <select appSelectbox id="from" class="form-control" formControlName="from">
+        <option *ngFor="let currency of converter.currencies;index as index" [value]="currency.id" [label]="currency.name+currency.symbol">
+        </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="to" class="label">to:</label>
+      <select appSelectbox id="to" class="form-control" formControlName="to">
+        <option *ngFor="let currency of converter.currencies" [value]="currency.id" [label]="currency.name+currency.symbol">
+        </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <input appSelectbox type="text" class="form-control" id="sum" formControlName="sum" placeholder="enter sum">
+    </div>
+    <div class="form-group">
+    <button appSelectbox class="btn btn-default" >Convert</button>
+  </div>
+  <div class="form-group">
+    <p class="well text-center" *ngIf="result!==''">{{sum}} {{from.name}} are {{result}} {{to.name}}</p>
+  </div>
+</form>
+  </div>
+  </div>
+  

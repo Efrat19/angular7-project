@@ -1,0 +1,51 @@
+@mixin headAndTail(){
+    width: 0;
+     height: 0;
+     margin: 0 auto; 
+}
+$fill:rgb(44, 128, 206);
+$frame:rgb(226, 224, 224);
+$window:rgb(226, 40, 102);
+.spaceship{
+ 
+    position:relative;
+    width:100px;
+    .head{
+        @include headAndTail();
+         border-left: 40px solid transparent;
+         border-right: 40px solid transparent;
+         border-bottom: 100px solid $fill;
+     }
+     .tail{
+        @include headAndTail();
+         border-left: 40px solid transparent;
+         border-right: 40px solid transparent;
+         border-top: 25px solid $fill;
+     }
+     .window{
+        margin: 0px auto; 
+        width:30px;
+        height:30px;
+        background-color:$window;
+        margin-top:-70px;
+        border-radius:50px;
+        border:3px solid $frame
+     }
+  .rocket{
+    position:absolute;
+    margin-top:-35px;
+     width: 0;
+      height: 0;
+      border-left: 12px solid transparent;
+      border-right: 12px solid transparent;
+      border-top: 40px solid $fill;
+    &.right{
+      right:0px;
+      transform:rotate(320deg)    
+    }
+    &.left{
+      left:0px;
+      transform:rotate(40deg)  
+    }
+  }
+  }
